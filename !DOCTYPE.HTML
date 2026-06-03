@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prosthetic Finger Control</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial, sans-serif;
+    }
+
+    body{
+        background:#f4f6f9;
+        color:#333;
+        padding:40px;
+    }
+
+    .container{
+        max-width:1400px;
+        margin:auto;
+    }
+
+    h1{
+        text-align:center;
+        margin-bottom:30px;
+        color:#2c3e50;
+    }
+
+    .content{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:30px;
+    }
+
+    .card{
+        background:white;
+        border-radius:15px;
+        padding:20px;
+        box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h2{
+        margin-bottom:15px;
+        color:#34495e;
+    }
+
+    iframe{
+        width:100%;
+        height:500px;
+        border:none;
+        border-radius:10px;
+    }
+
+    pre{
+        background:#1e1e1e;
+        color:#00ff88;
+        padding:20px;
+        border-radius:10px;
+        overflow-x:auto;
+        font-size:14px;
+        line-height:1.5;
+    }
+
+    @media(max-width:900px){
+        .content{
+            grid-template-columns:1fr;
+        }
+    }
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Prosthetic Finger Demonstration</h1>
+
+    <div class="content">
+
+        <!-- Video Section -->
+        <div class="card">
+            <h2>Demonstration Video</h2>
+
+            <iframe
+                src="https://drive.google.com/file/d/1c9IxhqSHJkML_vraAc6GeZzW3kyu42bg/preview"
+                allow="autoplay">
+            </iframe>
+
+        </div>
+
+        <!-- Code Section -->
+        <div class="card">
+            <h2>Arduino Control Code</h2>
+
+<pre><code>// Motor control pins
+int IN1 = 8;
+int IN2 = 9;
+
+void setup() {
+
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+
+}
+
+void loop() {
+
+  // =========================
+  // CLOSE FINGER
+  // =========================
+
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+
+  delay(2000);
+
+  // STOP MOTOR
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, LOW);
+
+  delay(1000);
+
+  // =========================
+  // OPEN FINGER
+  // =========================
+
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, HIGH);
+
+  delay(2000);
+
+  // STOP MOTOR
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, LOW);
+
+  delay(1000);
+}
+</code></pre>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
